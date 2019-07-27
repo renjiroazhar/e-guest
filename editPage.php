@@ -1,7 +1,20 @@
+<?php
+ require 'backend/config.php';
+
+ if($_GET['id'] == NULL){
+     return header('Location: inputPage.php');
+ }
+ 
+ $id = $_GET['id'];
+ $command = 'SELECT * FROM guests WHERE id = '.$id;
+ $query = mysqli_query($sql,$command);
+ $result = mysqli_fetch_assoc($query);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Data Diri</title>
+	<title>Login V18</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->	
@@ -36,28 +49,29 @@
 			<div class="wrap-login100-input-page">				
 						<!-- Below input form -->
 						<div class="container" style="padding: 10px 70px 70px 70px;">
-							<p style="text-align: center; margin-bottom: 40px; font-size: 30px;"><B>Masukkan Data Diri</B></p>
+							<p style="text-align: center; margin-bottom: 40px; font-size: 30px;"><B>Form Input Data Diri</B></p>
 							<div class="row">
 								<div class="col-sm-5">
-									<form action="backend/input_handler.php" method="POST" >
+									<form action="backend/update_handler.php" method="POST" >
+                                        <input type="hidden" name="id" value="<?=$result['id']?>">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Nama</label>
-											<input name="nama" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+											<input name="nama" value="<?=$result['name']?>"  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 											<small id="emailHelp" class="form-text text-muted">Nama Lengkap</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputEmail1">NIK</label>
-											<input type="number" name="nik"  class="form-control" id="NIK" aria-describedby="emailHelp" placeholder="">
+											<input type="number" name="nik" value="<?=$result['nik']?>"  class="form-control" id="NIK" aria-describedby="emailHelp" placeholder="">
 											<small id="emailHelp" class="form-text text-muted">Nomor Induk Kependudukan</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputEmail1">Alamat Rumah</label>
-											<input type="text" name="alamat_rumah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+											<input type="text" name="alamat_rumah" value="<?=$result['address']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 											<small id="emailHelp" class="form-text text-muted">Alamat</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Nama Instansi</label>
-											<input type="text" name="nama_instansi" class="form-control" id="exampleInputPassword1" placeholder="">
+											<input type="text" value="<?=$result['company_name']?>" name="nama_instansi" class="form-control" id="exampleInputPassword1" placeholder="">
 											<small class="form-text text-muted">(Optional)</small>
 										</div>
 										
@@ -67,24 +81,25 @@
 								<div class="col-sm-5">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Guru/Staff yang dituju</label>
-											<input type="text" name="guru" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+											<input type="text" value="<?=$result['intendeed_teacher']?>" name="guru" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 											<small id="emailHelp" class="form-text text-muted">Yang dituju</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputEmail1">NO Telepon</label>
-											<input type="number" name="no_telepon" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="085226285034" maxlength="16">
+											<input type="number" name="no_telepon" value="<?=$result['phone']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="085226285034" maxlength="16">
 											<small id="emailHelp" class="form-text text-muted">Masukan No telp</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleInputEmail1">Alamat Instansi</label>
-											<input type="text" name="alamat_instansi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+											<input type="text" name="alamat_instansi" value="<?=$result['company_address']?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
 											<small id="emailHelp" class="form-text text-muted">(Optional)</small>
 										</div>
 										<div class="form-group">
 											<label for="exampleFormControlTextarea1">Keperluan</label>
-											<textarea class="form-control" name="keperluan" id="exampleFormControlTextarea1" rows="3"></textarea>
+											<textarea class="form-control" name="keperluan" id="exampleFormControlTextarea1" rows="3"><?=$result['need']?></textarea>
 										</div>
-										<button class="btn btn-success m-t-20" style="margin-right: 70px; width: 100px; text-decoration: none;" type="submit" >Kirim</button>
+										
+												<button  class="btn btn-success" style="margin-right: 70px; width: 100px; text-decoration: none;" type="submit" >Kirim</button>
 									</form>
 								</div>
 							</div>
