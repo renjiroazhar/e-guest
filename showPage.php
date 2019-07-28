@@ -1,7 +1,17 @@
 <?php
 include 'backend/config.php';
 
-$res = mysqli_query($sql,'SELECT * FROM guests');?>
+session_start();
+if(!isset($_SESSION['role'])){
+    header('Location: login.php');
+}
+
+
+$res = mysqli_query($sql,'SELECT * FROM guests');
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +41,7 @@ $res = mysqli_query($sql,'SELECT * FROM guests');?>
             </tr>
         </thead>
         <tbody>
-            <?php $i = 1;while($result = mysqli_fetch_assoc($res)):?>
+            <?php $i = 1; while($result = mysqli_fetch_assoc($res)):?>
                 <tr>
                     <td><?=$i?></td>
                     <td><?=$result['name']?></td>
@@ -47,10 +57,7 @@ $res = mysqli_query($sql,'SELECT * FROM guests');?>
                     <td>
                         <a href="editPage.php?id=<?=$result['id']?>">Edit</a>
                         <a href="deletePage.php?id=<?=$result['id']?>">Delete</a>
-
                     </td>
-
-
                 </tr>
             <?php $i++; endwhile;?>
         </tbody>

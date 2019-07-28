@@ -91,8 +91,7 @@
                             ~BLANK~
                         </video>
                     </div>
-
-                <script src='https://unpkg.com/tesseract.js@v2.0.0-alpha.11/dist/tesseract.min.js'></script>
+                <script src="js/tesseract.min.js"></script>
                 <script type="text/javascript" >
                  // seleksi elemen video
                     var video = document.querySelector("#video-webcam");
@@ -146,7 +145,7 @@
 
                     worker
                     .recognize(
-                    `${canvas.toDataURL('image/png')}`,
+                    'images/foto.jpg',
                     'eng',
                     {
                       tessjs_image_rectangle_left: 0,

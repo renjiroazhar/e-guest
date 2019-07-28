@@ -1,6 +1,11 @@
 <?php
  require 'backend/config.php';
 
+ session_start();
+ if(!isset($_SESSION['role'])){
+	 header('Location: login.php');
+ }
+ 
  if($_GET['id'] == NULL){
      return header('Location: inputPage.php');
  }
@@ -98,8 +103,7 @@
 											<label for="exampleFormControlTextarea1">Keperluan</label>
 											<textarea class="form-control" name="keperluan" id="exampleFormControlTextarea1" rows="3"><?=$result['need']?></textarea>
 										</div>
-										
-												<button  class="btn btn-success" style="margin-right: 70px; width: 100px; text-decoration: none;" type="submit" >Kirim</button>
+										<button  class="btn btn-success" style="margin-right: 70px; width: 100px; text-decoration: none;" type="submit" >Kirim</button>
 									</form>
 								</div>
 							</div>

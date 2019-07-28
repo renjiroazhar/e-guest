@@ -54,3 +54,5 @@ if($result_query){
 }else{
     echo mysqli_error($sql);
 }
+
+?>
