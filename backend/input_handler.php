@@ -60,7 +60,6 @@ $result_query = mysqli_query($sql,$query);
 
 if($result_query){
     
-
     $token = "727683351:AAFVIzhEVVRuxQBHwWe162G0VfZH2yjmTu0";
     $chat = "-381126773";
 
