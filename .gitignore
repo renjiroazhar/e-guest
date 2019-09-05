@@ -1,2 +1,9 @@
-# Dependency directories
+# ignore a single file
+composer.lock
+debug.log
+
+# ignore an entire directory
+_MACOSX/
+bootstrap/
+config/
 vendor/
