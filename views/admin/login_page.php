@@ -1,7 +1,7 @@
 <?php
 
   if(count($_POST)>0) {
-    $conn = mysqli_connect("localhost","root","","e-guest");
+    $conn = mysqli_connect("localhost", "root", "", "e-guest");
     $result = mysqli_query($conn,"SELECT * FROM admin WHERE username='" . $_POST["username"] . "' and password = '". $_POST["password"]."'");
     $count  = mysqli_num_rows($result);
     if ($count==0) {
