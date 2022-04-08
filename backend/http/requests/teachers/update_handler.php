@@ -7,7 +7,7 @@ $nama = $_POST['nama'];
 $mapel = $_POST['mapel'];
 $nomor_telepon = $_POST['nomor_telepon'];
 
-$query = "UPDATE teachers SET
+$query = "UPDATE teacher SET
             nip = '$nip', 
             name = '$nama',
             course = '$mapel',
@@ -15,7 +15,7 @@ $query = "UPDATE teachers SET
             WHERE id =".$_POST['id'];
 
     if($nip == NULL){
-        $query = "UPDATE teachers SET 
+        $query = "UPDATE teacher SET 
             name = '$nama',
             course = '$mapel',
             phone = '$nomor_telepon'
@@ -23,7 +23,7 @@ $query = "UPDATE teachers SET
     }
     
     if($mapel == NULL){
-        $query = "UPDATE teachers SET 
+        $query = "UPDATE teacher SET 
             nip = '$nip',
             name = '$nama',
             phone = '$nomor_telepon'
@@ -31,7 +31,7 @@ $query = "UPDATE teachers SET
     }
 
     if($nomor_telepon == NULL){
-        $query = "UPDATE teachers SET 
+        $query = "UPDATE teacher SET 
             nip = '$nip',
             name = '$nama',
             course ='$mapel'

@@ -4,7 +4,7 @@
  
  $id = $_GET['id'];
 
- $command = 'SELECT * FROM guests WHERE id = '.$id;
+ $command = 'SELECT * FROM guest WHERE id = '.$id;
  $query = mysqli_query($sql,$command);
  $result = mysqli_fetch_assoc($query);
 

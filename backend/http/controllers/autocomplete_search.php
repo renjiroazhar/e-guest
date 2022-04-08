@@ -12,7 +12,7 @@
     $searchTerm = $_GET['term'];
 
     //get matched data from skills table
-    $query = $database->query("SELECT * FROM teachers WHERE name LIKE '%".$searchTerm."%' ORDER BY id ASC");
+    $query = $database->query("SELECT * FROM teacher WHERE name LIKE '%".$searchTerm."%' ORDER BY id ASC");
     while ($row = $query->fetch_assoc()) {
         $data[] = $row['title'];
     }

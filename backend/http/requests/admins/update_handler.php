@@ -5,7 +5,7 @@ include '../../../../config/config.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = "UPDATE admins SET
+$query = "UPDATE admin SET
             username = '$username', 
             password = '$password'
             WHERE id =".$_POST['id'];

@@ -19,7 +19,7 @@ $alamat_instansi = htmlspecialchars($_POST['alamat_instansi']);
 $query = null;
 
 if($alamat_rumah == NULL ){
-    $query = "INSERT INTO guests (name,phone,need,intendeed_teacher,company_name,company_address) VALUES (
+    $query = "INSERT INTO guest (name,phone,need,intendeed_teacher,company_name,company_address) VALUES (
     '$nama',
     '$nomor_telepon',
     '$keperluan',
@@ -28,7 +28,7 @@ if($alamat_rumah == NULL ){
     '$alamat_instansi')";    
 }
 else{
-    $query = "INSERT INTO guests (name,address,phone,need,intendeed_teacher,company_name,company_address) VALUES (
+    $query = "INSERT INTO guest (name,address,phone,need,intendeed_teacher,company_name,company_address) VALUES (
         '$nama',
         '$alamat_rumah',
         '$nomor_telepon',

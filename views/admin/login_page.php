@@ -2,18 +2,14 @@
 
   if(count($_POST)>0) {
     $conn = mysqli_connect("localhost","root","","e-guest");
-    $result = mysqli_query($conn,"SELECT * FROM admins WHERE username='" . $_POST["username"] . "' and password = '". $_POST["password"]."'");
+    $result = mysqli_query($conn,"SELECT * FROM admin WHERE username='" . $_POST["username"] . "' and password = '". $_POST["password"]."'");
     $count  = mysqli_num_rows($result);
-    if($count==0) {
-
+    if ($count==0) {
       return header('Location: login_page.php?msg=1');
-
     } else {
-      
       session_start();
       $_SESSION['role'] = 'admin';
       return header('Location: ./index.php');
-    
     }
   }
 

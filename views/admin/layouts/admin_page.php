@@ -3,7 +3,7 @@
   include '../../../config/config.php';
   include '../../../backend/http/controllers/validation.php';
 
-  $res = mysqli_query($sql,'SELECT * FROM admins');
+  $res = mysqli_query($sql,'SELECT * FROM admin');
 
 ?>
 

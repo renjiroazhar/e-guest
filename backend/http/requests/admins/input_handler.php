@@ -5,7 +5,7 @@ include '../../../../config/config.php';
 $username = htmlspecialchars($_POST['username']);
 $password = htmlspecialchars($_POST['password']);
 
-$query = "INSERT INTO admins (username, password) VALUES (
+$query = "INSERT INTO admin (username, password) VALUES (
     '$username',
     '$password'
 )";    

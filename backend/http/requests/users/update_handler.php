@@ -12,7 +12,7 @@ $alamat_instansi = $_POST['alamat_instansi'];
 
 print_r($_POST);
 
-$query = "UPDATE guests SET
+$query = "UPDATE guest SET
             name = '$nama', 
             address = '$alamat_rumah',
             phone = '$nomor_telepon',
@@ -23,7 +23,7 @@ $query = "UPDATE guests SET
             WHERE id =".$_POST['id'];
 
     if($alamat_rumah == NULL ){
-        $query = "UPDATE guests SET 
+        $query = "UPDATE guest SET 
             name = '$nama',
             phone = '$nomor_telepon',
             need = '$keperluan',

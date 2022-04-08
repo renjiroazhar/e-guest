@@ -9,7 +9,7 @@ $nomor_telepon = htmlspecialchars($_POST['nomor_telepon']);
 $query = null;
 
   if($nip == NULL){
-      $query = "INSERT INTO teachers (name, course, phone) VALUES (
+      $query = "INSERT INTO teacher (name, course, phone) VALUES (
           '$nama',
           '$mapel',
           '$nomor_telepon'
@@ -17,7 +17,7 @@ $query = null;
   }
 
   if($mapel == NULL){
-      $query = "INSERT INTO teachers (nip, name, phone) VALUES (
+      $query = "INSERT INTO teacher (nip, name, phone) VALUES (
           '$nip',
           '$nama',
           '$nomor_telepon'
@@ -25,14 +25,14 @@ $query = null;
   }
 
   if($nomor_telepon == NULL){
-      $query = "INSERT INTO teachers (nip, name, course) VALUES (
+      $query = "INSERT INTO teacher (nip, name, course) VALUES (
           '$nip',
           '$nama',
           '$mapel'
       )";
   }
 
-  $query = "INSERT INTO teachers (nip, name, course, phone) VALUES (
+  $query = "INSERT INTO teacher (nip, name, course, phone) VALUES (
     '$nip',
     '$nama',
     '$mapel',

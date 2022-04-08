@@ -2,7 +2,7 @@
 
 include '../../../config/config.php';
 
-$res = mysqli_query($sql,'SELECT * FROM guests WHERE status=0');
+$res = mysqli_query($sql,'SELECT * FROM guest WHERE status=0');
 
 ?>
 
