@@ -31,9 +31,24 @@
 <body style="background-color: #666666;">
     
     <div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                    <div class="login100-form validate-form">
+
+                    <!-- <div class="container" style="padding: 0px 0px 0px 0px !important;">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <span class="login100-form-nav-title">
+                                <b></b>
+                            </span>
+                            <a style="background-image: url('images/icons/power-off.png'); align-text: right; width: 34px; height: 32px;" href="#"></a>
+                        </nav>
+                    </div> -->
+                    
+<!--                     <center>
+                        <div class=" p-t-50 p-b-15">
+                            <img src="./images/logo smkn 8 semarang.png" alt="..." style="height: 150px; width: 150px;">
+                        </div>
+                    </center> -->
 
                     <span class="login100-form-title p-t-150 p-b-40">
                         <b>Cara Menggunakan Scanner</b>
@@ -43,9 +58,9 @@
                         2. Jika sudah pas, maka klik scan 
                     </span>
                     <div class="container-login100-form-btn">
-                        <button onclick="takeSnapshot()" class="login100-form-btn" style="text-decoration: none">
-                            SCAN
-                        </button>
+                            <button onclick="takeSnapshot()" class="login100-form-btn" style="text-decoration: none">
+                                SCAN
+                            </button>
                     </div>
 
 					<div class="text-center p-t-10 p-b-10">
@@ -61,89 +76,89 @@
 							</button>
 						</a>
 					</div>
-                </form>
-
-                <div>
-                    <div class="login100-more" style="margin-top: 140px; margin-right: 90px;">
-                        <video autoplay="true" id="video-webcam">
-                            ~BLANK~
-                        </video>
-                    </div>
-
-                    <script src="../../../assets/js/tesseract.min.js"></script>
-                    <script type="text/javascript" >
-                    // seleksi elemen video
-                        var video = document.querySelector("#video-webcam");
-
-                        // minta izin user
-                        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-
-                        // jika user memberikan izin
-                        if (navigator.getUserMedia) {
-                            // jalankan fungsi handleVideo, dan videoError jika izin ditolak
-                            navigator.getUserMedia({ video: true }, handleVideo, videoError);
-                        }
-
-                        // fungsi ini akan dieksekusi jika  izin telah diberikan
-                        function handleVideo(stream) {
-                            video.srcObject = stream;
-                        }
-
-                        // fungsi ini akan dieksekusi kalau user menolak izin
-                        function videoError(e) {
-                            // do something
-                            alert("Please Turn On Your Camera !")
-                        }
-                        //Snapshot
-                        function takeSnapshot() {
-                        const {TesseractWorker} = window.Tesseract;
-                        const worker = new TesseractWorker();
-
-                        // buat elemen img
-                        var img = document.createElement('img');
-                        var context;
-
-                        // ambil ukuran video
-                        var width = video.offsetWidth
-                                , height = video.offsetHeight;
-
-                        // buat elemen canvas
-                        canvas = document.createElement('canvas');
-                        canvas.width = width;
-                        canvas.height = height;
-
-                        // ambil gambar dari video dan masukan 
-                        // ke dalam canvas
-                        context = canvas.getContext('2d');
-                        context.drawImage(video, 0, 0, width, height);
-
-                        // render hasil dari canvas ke elemen img
-                        // img.src = canvas.toDataURL('image/png');
-                        // img.id = "capturedImage";
-                        // document.body.appendChild(img);
-
-                        worker
-                        .recognize(
-                        `${canvas.toDataURL('image/png')}`,
-                        'eng',
-                        {
-                        tessjs_image_rectangle_left: 0,
-                        tessjs_image_rectangle_top: 0,
-                        tessjs_image_rectangle_width: 450,
-                        tessjs_image_rectangle_height: 150,
-                        }
-                    )
-                    .progress((p) => {
-                        console.log('progress', p);
-                    })
-                    .then(({ text }) => {
-                        console.log(text);
-                        worker.terminate();
-                    });
-                        }
-                    </script>
-                    <!-- <button onclick="takeSnapshot()"> Scan </button> -->
                 </div>
+
+                <div class="login100-more" style="margin-top: 80px; margin-right: 70px;">
+                    <video autoplay="true" id="video-webcam">
+                        ~BLANK~
+                    </video>
+                </div>
+
+                <script src="../../../assets/js/tesseract.min.js"></script>
+                <script type="text/javascript" >
+                 // seleksi elemen video
+                    var video = document.querySelector("#video-webcam");
+
+                    // minta izin user
+                    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+
+                    // jika user memberikan izin
+                    if (navigator.getUserMedia) {
+                        // jalankan fungsi handleVideo, dan videoError jika izin ditolak
+                        navigator.getUserMedia({ video: true }, handleVideo, videoError);
+                    }
+
+                    // fungsi ini akan dieksekusi jika  izin telah diberikan
+                    function handleVideo(stream) {
+                        video.srcObject = stream;
+                    }
+
+                    // fungsi ini akan dieksekusi kalau user menolak izin
+                    function videoError(e) {
+                        // do something
+                        alert("Please Turn On Your Camera !")
+                    }
+                    //Snapshot
+                    function takeSnapshot() {
+                    const {TesseractWorker} = window.Tesseract;
+                    const worker = new TesseractWorker();
+
+                    // buat elemen img
+                    var img = document.createElement('img');
+                    var context;
+
+                    // ambil ukuran video
+                    var width = video.offsetWidth
+                            , height = video.offsetHeight;
+
+                    // buat elemen canvas
+                    canvas = document.createElement('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+
+                    // ambil gambar dari video dan masukan 
+                    // ke dalam canvas
+                    context = canvas.getContext('2d');
+                    context.drawImage(video, 0, 0, width, height);
+
+                    // render hasil dari canvas ke elemen img
+                    // img.src = canvas.toDataURL('image/png');
+                    // img.id = "capturedImage";
+                    // document.body.appendChild(img);
+
+                    worker
+                    .recognize(
+                    `${canvas.toDataURL('image/png')}`,
+                    'eng',
+                    {
+                      tessjs_image_rectangle_left: 0,
+                      tessjs_image_rectangle_top: 0,
+                      tessjs_image_rectangle_width: 500,
+                      tessjs_image_rectangle_height: 250,
+                    }
+                  )
+                  .progress((p) => {
+                    console.log('progress', p);
+                  })
+                  .then(({ text }) => {
+                    console.log(text);
+                    worker.terminate();
+                  });
+                    }
+
+
+                </script>
+                <!-- <button onclick="takeSnapshot()"> Scan </button> -->
             </div>
         </div>
     </div>

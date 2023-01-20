@@ -96,13 +96,13 @@
 				<div id="carouselExampleControls" class="carousel slide login100-more" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-						<img src="./img/carousel-1.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
+						<img src="../../assets/img/carousel-1.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
 						</div>
 						<div class="carousel-item">
-						<img src="./img/carousel-2.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
+						<img src="../../assets/img/carousel-2.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
 						</div>
 						<div class="carousel-item">
-						<img src="./img/carousel-3.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
+						<img src="../../assets/img/carousel-3.png" class="d-block w-100" alt="..." style="height: -webkit-fill-available;">
 						</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
