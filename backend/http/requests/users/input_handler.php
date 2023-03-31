@@ -59,9 +59,26 @@ if($result_query){
     
     $loop->run();
 
-    return header('Location: ../../../../views/users/layouts/input_page.php');
+    return header('Location: ../../../../views/users/layouts/input_page.php'); 
+} elseif ($_SESSION['role'] == 'admin' && $result_query) {
+    $loop = \React\EventLoop\Factory::create();
+    $handler = new HttpClientRequestHandler($loop);
+    $tgLog = new TgLog($token, $handler);
+
+    $sendMessage = new SendMessage();
+    $sendMessage->chat_id = $chat;
+    $sendMessage->parse_mode = 'html';
+    $word = '<b>Perhatian Kepada Bapak/Ibu Guru</b>'.PHP_EOL.PHP_EOL.'<b>Nama</b> : '.$nama.PHP_EOL.'<b>Alamat Rumah</b> : '.$alamat_rumah.PHP_EOL.'<b>Nomor Telepon</b> : '.$nomor_telepon.
+            PHP_EOL.'<b>Keperluan</b> : '.$keperluan.PHP_EOL.'<b>Guru</b> : '.$guru.PHP_EOL.'<b>Nama Instansi</b> : '.$nama_instansi.PHP_EOL.'<b>Alamat Instansi</b> : '.$alamat_instansi
+            .PHP_EOL.PHP_EOL.'Apakah Bapak/Ibu '.$guru.' dapat menemui?';
+
+    $sendMessage->text = $word;
+    $tgLog->performApiRequest($sendMessage);
     
-}else{
+    $loop->run();
+
+    return header('Location: ../../../../views/admin/layouts/table_page.php'); 
+} else {
     echo mysqli_error($sql);
 }
 
